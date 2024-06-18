@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Simple Interest Calculator</h2>
+        <label for="principal">Principal Amount:</label>
+        <input type="number" id="principal" />
+        <br>
+        <label for="rate">Rate of Interest (%):</label>
+        <input type="number" id="rate" />
+        <br>
+        <label for="time">Time Period (years):</label>
+        <input type="number" id="time" />
+        <br>
+        <button onclick="calculateSimpleInterest()">Calculate</button>
+        <p id="simpleInterestResult"></p>
+    </div>
+
+    <script>
+        function calculateSimpleInterest() {
+            const principal = parseFloat(document.getElementById('principal').value);
+            const rate = parseFloat(document.getElementById('rate').value);
+            const time = parseFloat(document.getElementById('time').value);
+            const simpleInterest = (principal * rate * time) / 100;
+            document.getElementById('simpleInterestResult').innerText = `Simple Interest: $${simpleInterest.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
