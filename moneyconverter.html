@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Money Converter</h2>
+        <label for="amount">Amount in USD:</label>
+        <input type="number" id="amount" />
+        <button onclick="convertMoney()">Convert to EUR</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function convertMoney() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const exchangeRate = 0.85; // Example rate: 1 USD = 0.85 EUR
+            const convertedAmount = amount * exchangeRate;
+            document.getElementById('result').innerText = `Converted Amount: €${convertedAmount.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
