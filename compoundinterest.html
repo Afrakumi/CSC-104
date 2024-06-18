@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Compound Interest Calculator</h2>
+        <label for="principalCI">Principal Amount:</label>
+        <input type="number" id="principalCI" />
+        <br>
+        <label for="rateCI">Rate of Interest (%):</label>
+        <input type="number" id="rateCI" />
+        <br>
+        <label for="timeCI">Time Period (years):</label>
+        <input type="number" id="timeCI" />
+        <br>
+        <label for="timesCI">Times Compounded Per Year:</label>
+        <input type="number" id="timesCI" />
+        <br>
+        <button onclick="calculateCompoundInterest()">Calculate</button>
+        <p id="compoundInterestResult"></p>
+    </div>
+
+    <script>
+        function calculateCompoundInterest() {
+            const principal = parseFloat(document.getElementById('principalCI').value);
+            const rate = parseFloat(document.getElementById('rateCI').value) / 100;
+            const time = parseFloat(document.getElementById('timeCI').value);
+            const times = parseFloat(document.getElementById('timesCI').value);
+            const compoundInterest = principal * Math.pow((1 + rate / times), (times * time));
+            document.getElementById('compoundInterestResult').innerText = `Compound Interest: $${compoundInterest.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
